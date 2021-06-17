@@ -1,0 +1,426 @@
+<Doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/e3a74b083e.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet"  href="site_viverde.css"/>
+  
+  <script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+  <script>
+  Parse.serverURL = 'https://parseapi.back4app.com'; // This is your Server URL
+  // Remember to inform BOTH the Back4App Application ID AND the JavaScript KEY
+  Parse.initialize(
+    'guzxHjThACEhXmDZjiYTgue8DepLPwcRcnDcxCp0', // This is your Application ID
+    'c0eLHfi7gAQhHY8VBcHlfJEWcDgyaKDtcNs6E4Tt' // This is your Javascript key
+  );
+  </script>
+
+  <title>ViverdeCasa</title>
+</head>
+      <body onload="nova()">
+         <div class="container-fluid justify-content-center "></div>
+        
+        <nav class="nav navbar  navbar-expand-lg navbar-dark bg-ligth navbar fixed-top" id="div1" style="background-color: #00AB80;">
+        
+       <a class="navbar-brand"  href="#">
+          <img src="imgs/logo viverde.png" id="viverde"> 
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="background-color: #00AB80;">
+          <span class="navbar-toggler-icon" style="background-color: #00AB80;"></span>
+        </button> 
+        
+        <div class="collapse navbar-collapse justify-content-center " id="navbarNav">
+          <ul class="navbar-nav d-flex align-items-center ">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item" id="CA">
+              <a class="nav-link" href="#">Como atuamos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  onclick="mostrar()" href="#pagina2">Serviços</a>      
+                
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Cursos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Depoimentos</a>
+            </li>
+            <div class="icon">
+            <a href="https://api.whatsapp.com/send?phone=5581988527302"><img src="imgs/logo wpp.png" hspace="7"></a> 
+            <a href="https://www.instagram.com/viverdecasa/"><img src="imgs/logo Instagram.png" hspace="7"></a>
+            <a id="btnEntrar"><button type="button" value="prox" style=" background: #F7F5F6; border-radius: 5px; color: #1C1B1A; border: none; font-size: 16px;  font-weight: bold;"> Entrar</button ></a>    
+              
+           </div>
+             
+          </ul>
+         
+        </div>
+      </nav>
+      <div class="fixed-top" id="serv">
+        <pre class="text-center" id="demon" style="background-color: #0000;"></pre>
+      </div>
+      <div align="center" id="div2">
+       <div style="padding: 100px;">
+       </div>
+        <h1 style="font-size: 48px;"> Está a procura de um serviços? </h1>
+        <h5 style="font-size: 24px;">A Viverde está pronta para lhe atender.</h5><br>
+        <a href="#pagina2"><button type="button" value="prox" button style=" background: #ED9C18; border-radius: 5px; padding: 3px; height: 35px; width: 290px; cursor: pointer; color: #F7F5F6; border: none; font-size: 18px; font-style: Questrial" > Faça já seu orçamento</button></a> 
+      </div>
+      <div id="pagina2"></div>
+      <br><br><br><br><br><br>
+     <main >
+     <!--SEGUNDA PAGINA-->
+     <div id="tela3">
+      <div class="container">
+          <div class="container col-md-4" style="padding:15px;">
+              <div class="input-group">
+                  <select class="form-control-sm" name="cidades" style="border-color: #BAAF96;width: 100px;">
+                      <span>Cidade</span>
+                      <span> &#9662; </span>
+                      <option value="Recife">Recife</option>
+                      <option value="Olinda">Olinda</option>
+                  </select>
+                  <input type="search"  style="border-color: #BAAF96;width: 300px;" class="form-control rounded" placeholder="Qual serviço procura?" aria-label="Search"
+                    aria-describedby="search-addon" />
+                  <button type="button" class="btn" style="background-color: #F9FFFA;border-color: #BAAF96;"><svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.1386 7.54659H9.49466L9.27083 7.3586C10.0615 6.57852 10.5424 5.56722 10.5424 4.45919C10.5424 1.99613 8.18253 -0.000396729 5.2712 -0.000396729C2.35988 -0.000396729 0 1.99613 0 4.45919C0 6.92225 2.35988 8.91877 5.2712 8.91877C6.5809 8.91877 7.77543 8.51261 8.69749 7.84435L8.92131 8.03234V8.57573L12.9745 12L14.1836 10.977L10.1386 7.54659ZM5.269 7.54612C3.25295 7.54612 1.61967 6.16433 1.61967 4.45871C1.61967 2.75378 3.25295 1.37131 5.269 1.37131C7.28425 1.37131 8.91834 2.75378 8.91834 4.45871C8.91834 6.16433 7.28425 7.54612 5.269 7.54612Z" fill="#1C1B1A"/>
+</svg>
+</button>
+              </div>
+         </div>
+              <div id="tiposServiços">
+                <div class="row " id="rows"> 
+                  <h1 class="text-center" style="color:#27A072;margin-bottom: 23px; padding: 10px;font-size: 36px;">Serviços por categoria</h1>
+                  
+                  <div class="serviços" onclick="aparecer()">
+                    <input type="text" id="pintura" value="pintura" style="display: none;">
+                     <div class="" style="background-image:url(imgs/pintura.png);background-size:100%; width: 220px ;background-repeat: no-repeat;height: 140px;"></div>
+                      <p>Pintura</p>
+                  </div>
+                  
+                  <div class="serviços" onclick="aparecer1()">
+                    <input type="text" id="eletrica" value="Elétrica" style="display: none;">
+                      <div class="" style="background-image:url(imgs/eletrica.png);background-size:100%; width: 220px ;background-repeat: no-repeat;height: 140px;"></div>
+                      <p>Elétrica</p>
+                  </div>
+                  <div class="serviços" onclick="aparecer2()">
+                    <input type="text" id="automacao" value="Automação" style="display: none;">
+                      <div class="" style="background-image:url(imgs/automaçao.png);background-size:100%; width: 220px ;background-repeat: no-repeat;height: 140px;"></div>
+                     <p>Automação</p>
+              </div>
+
+                  <div class="serviços" onclick="aparecer3()">
+                    <input type="text" id="hidraulica" value="Hidraúlica" style="display: none;">
+                      <div class="" style="background-image:url(imgs/hidraulica.png);background-size:100%; width: 220px ;background-repeat: no-repeat;height: 140px;"></div>
+                      <p>Hidraúlica</p>
+                  </div> 
+                  <div class="serviços" onclick="aparecer4()">
+                    <input type="text" id="construcao" value="Construção" style="display: none;">
+                      <div class="" style="background-image:url(imgs/construçao.png);background-size:100%; width: 220px ;background-repeat: no-repeat;height: 140px;"></div>
+                      <p>Construção</p>
+                  </div>
+                  <div class="serviços" onclick="aparecer5()" >
+                    <input type="text" id="refGeral" value="Reforma em Geral" style="display: none;">
+                      <div class="" style="background-image:url(imgs/reforma.png);background-size:100%; width: 220px ;background-repeat: no-repeat;height: 140px;"></div>
+                      <p>Reforma em Geral</p>
+                  </div>
+
+                  <div class="serviços" onclick="aparecer6()">
+                    <input type="text" id="desInte" value="Design de Interiores" style="display: none;">
+                      <div class="" style="background-image:url(imgs/desing_interiores.png);background-size:100%; width: 220px ;background-repeat: no-repeat;height: 140px;"></div>
+                      <p>Design de Interiores</p>
+                  </div> 
+                  <div class="serviços" onclick="aparecer7()">
+                    <input type="text" id="arqEng" value="Arquitetura e Engenharia" style="display: none;">
+                      <div class="" style="background-image:url(imgs/arquitetura.png);background-size:100%; width: 220px ;background-repeat: no-repeat;height: 140px;"></div>
+                      <p>Arquitetura e Engenharia</p>
+                  </div> 
+                  <div class="serviços" onclick="aparecer8()">
+                    <input type="text" id="obraAcab" value="Obras de Acabamento" style="display: none;">
+                      <div class="" style="background-image:url(imgs/acabamento.png);background-size:100%; width: 220px ;background-repeat: no-repeat;height: 140px;"></div>
+                      <p>Obras de Acabamento</p>
+                  </div> 
+                  <div class="serviços" onclick="aparecer9()">
+                    <input type="text" id="forroPvc" value="Forro em PVC" style="display: none;">
+                      <div class="" style="background-image:url(imgs/forro_pvc.png);background-size:100%; width: 220px ;background-repeat: no-repeat;height: 140px;"></div>
+                      <p>Forro em PVC</p>
+                  </div>
+                  <div class="serviços" onclick="aparecer10()">
+                    <input type="text" id="marcenaria" value="Marcenaria" style="display: none;">
+                      <div class="" style="background-image:url(imgs/marcenaria.png);background-size:100%; width: 220px ;background-repeat: no-repeat;height: 140px;"></div>
+                      <p>Marcenaria</p>
+                  </div> 
+                  <div class="serviços" onclick="aparecer11()">
+                    <input type="text" id="forroGesso" value="Forro ou revestimento em Gesso" style="display: none;">
+                      <div class="" style="background-image:url(imgs/forro_revestimento.png);background-size:100%; width: 220px ;background-repeat: no-repeat;height: 140px;"></div>
+                      <p>Forro ou revestimento em Gesso</p>
+                  </div> 
+                  <div class="serviços" onclick="aparecer12()">
+                    <input type="text" id="aplPiso" value="Aplicação de piso ou Revestimento" style="display: none;">
+                      <div class="" style="background-image:url(imgs/piso.png);background-size:100%; width: 220px ;background-repeat: no-repeat;height: 140px;"></div>
+                      <p>Aplicação de piso ou Revestimento</p>
+                  </div>
+                  <div class="serviços" >
+                      <div class="" style=" width: 220px ;;height: 140px;"></div>
+                      <p>Outro</p>
+                  </div> 
+                  
+              </div>
+              </div>
+              
+              <br> <br> <br> <br> <br>
+      </div> 
+  </div>
+  <!--tela Overlay--> 
+  </main>
+    
+  
+    <div class="container" style="margin-top:-20%;margin-left: 15%;height: 70%; ">   
+      
+      <div class="overlay" id="overlay1">           
+        <div class="row" style="padding:0px 20px; width: 80%; margin: 0 auto;">
+          <img src="imgs/etapa-1.png" alt="etapa-1" style="width: 70%; margin-left: 95px;padding: 30px;"><a href="#pagina2" onclick="fechar(1)" style="padding-left: 730px; margin-top: -70px;"><img src="imgs/fechar.png" alt="fechar"></a>
+          <!--OVERLAY - Nos explique melhor-->
+          <p class="text-center" style="font-size: 36px;">Nos explique melhor</p>
+          <p style="font-size: 18px;">Queremos entender exatamente qual é sua necessidade. Então informe nesse espaço detalhes de serviço que deseja contratar.
+          (Ex: Aplicação de revestimento cerâmico em parede de banheiro que mede 2m x 3m)
+          </p>
+          <textarea  class="" id="medida"  rows="1" style="font-size:18px;color: #024F35;" placeholder="2m x 3m"></textarea>
+          <div class="container" style="align-items: center; text-align: center; margin-top: 5%;"></div>
+          <h4 class="text-center">Adicione imagens ou um vídeo:</h4>
+          <div class="container" style="background-color: #F7F5F6;padding: 10px;">               
+          <input class="form-contro-file rounded mx-auto d-block" type="file" enctype= "multipart/form-data" name="arquivo" id="arquivo" style="padding: 10px;">
+          </div>    
+          </div>
+          <div class="text-center" style="padding: 20px;">
+          <a  onclick="video()"><b style="color: #024F35;">Vôce não sabe medir?</b></a>
+          </div>
+          <div class="text-center">
+          <button onclick="proximo(1)" style="background-color: #069C6A; color: #FAF9F6; border: #069C6A solid;" class="btn">Proximo</button>
+          </div>
+        </div> 
+  
+    
+
+      <div class="overlay" id="overlayVideo">            
+        <div class="row" style="padding:0px 20px; width: 80%; margin: 0 auto;">
+          <img src="imgs/etapa-1.png" alt="etapa-1" style="width: 70%; margin-left: 95px;padding:15px;margin-top: 20px;"><a href="#pagina2" onclick="fechar()" style="padding-left: 730px; margin-top: -43px;"><img src="imgs/fechar.png" alt="fechar"></a>
+          <div class="container" style="align-items: center; text-align: center; margin-top: 5%;">
+            <!--OVERLAY - video youtube-->
+            <p class="text-center" >Segue o tutorial ensinando a você como medir</p>
+            <div class="container" >
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/5oy5sUCAvR4" 
+              title="YouTube video player" frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+              </iframe>
+            </div>
+            <div class="text-center"><br>
+                <button onclick="voltarVideo()" style="background-color: #FAF9F6;color:#069C6A; border: #069C6A solid; " class="btn">Voltar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    <div class="overlay" id="overlay2">           
+        <div class="row" style="padding:0px 20px; width: 80%; margin: 0 auto;"><a href="#pagina2" onclick="fechar()" style="padding-left: 730px;margin-top: 27px;"><img src="imgs/fechar.png" alt="fechar"></a>
+            <div class="container col-sm-9" style="margin-top: 10%;">
+                <p style="font-size: 24px;">Precisamos informar ao prestador de serviço o melhor horário para que ele 
+                possa lhe atender. Lembramos que após o envio do orçamento, quando o contrato for fechado confirmaremos
+                o dia e a hora exatos em concordância com o profissional para a realização do serviço.
+                </p>
+            </div>
+            <div class="text-center">
+                <button onclick="proximo(2)" style="background-color: #069C6A; color: #FAF9F6; border: #069C6A solid;" class="btn">Proximo</button>       
+            </div>   
+        </div>
+    </div>
+
+
+
+      
+    <div class="overlay" id="overlay3">           
+        <div class="row" style="padding:0px 20px; width: 80%; margin: 0 auto;">
+            <img src="imgs/etapa-2.png" alt="etapa-1" style="width: 70%;margin-left: 95px;padding:0px;margin-top: 30px;"><a href="#pagina2" onclick="fechar()" style="padding-left: 730px; margin-top: -40px;"><img src="imgs/fechar.png" alt="fechar"></a>
+            <div style="margin-top: -3%;">
+                <h1 class="text-center" style="font-size:24px;color: #024F35;">Qual melhor horário para a realização do serviço?</h1>
+                <div class="container" style="align-items: center;">
+                    <div style="background-color: #069C6A;margin:20px;" >
+                        <div style="padding: 10px;">
+                            <input class="form-check-input" type="radio" name="op" id="Manhã" value="Manhã (8:00 - 12:00)">
+                            <label class="form-check-label" for="casa">Manhã (8:00 - 12:00)</label>
+                        </div>
+                    </div>
+                    <div style="background-color: #069C6A;margin: 20px;">
+                        <div style="padding: 10px;">
+                            <input class="form-check-input" type="radio" name="op" id="Tarde" value="Manhã (8:00 - 12:00)">
+                            <label class="form-check-label" for="apt">Tarde (13:00 - 18:00)</label>
+                        </div>
+                    </div>
+                    <div style="background-color: #069C6A;margin: 20px;">
+                        <div style="padding:10px;">
+                            <input class="form-check-input" type="radio" name="op" id="Noite" value="Manhã (8:00 - 12:00)">
+                            <label class="form-check-label" for="outros">Noite (19:00 - 23:00)</label>
+                        </div>
+                    </div>       
+                </div>
+            </div>
+            <div class="text-center">
+                <button onclick="voltar(3)" style="background-color: #FAF9F6;color:#069C6A; border: #069C6A solid;" class="btn">Voltar</button><button style="background-color: #069C6A; color: #FAF9F6; border: #069C6A solid;" class="btn" onclick="proximo(3)">Proximo</button>
+            </div>    
+        </div>
+    </div>
+
+
+    <div class="overlay" id="overlay4">           
+        <div class="row" style="padding:0px 20px; width: 80%; margin: 0 auto;">
+            <img src="imgs/etapa-2.png" alt="etapa-1" style="width: 70%;margin-left: 95px;padding:0px;margin-top: 30px;"><a href="#pagina2" onclick="fechar()" style="padding-left: 730px; margin-top: -40px;"><img src="imgs/fechar.png" alt="fechar"></a>
+            <h1 class="text-center" style="font-size:24px;color: #024F35;">Aceita que o serviço seja realizado fim de semana?</h1>
+            <div class="container" style="align-items: center;  margin-top: 0%;">
+                <div style="background-color: #069C6A;margin:20px;" >
+                    <div style="padding: 10px;">
+                        <input class="form-check-input" type="radio" name="Sn" value="Sim" >
+                        <label class="form-check-label" for="casa">Sim</label>
+                    </div>
+                </div>
+                <div style="background-color: #069C6A;margin: 20px;">
+                    <div style="padding: 10px;">
+                        <input class="form-check-input" type="radio" name="Sn" value="Nao" >
+                        <label class="form-check-label" for="apt">Não</label>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <button onclick="voltar(4)" style="background-color: #FAF9F6;color:#069C6A; border: #069C6A solid;" class="btn">Voltar</button><button onclick="proximo(4)" style="background-color: #069C6A; color: #FAF9F6; border: #069C6A solid;" class="btn">Proximo</button>
+            </div>    
+        </div>
+    
+
+
+
+    <div class="overlay" id="overlay5">           
+        <div class="row" style="padding:0px 20px; width: 80%; margin: 0 auto;">
+            <img src="imgs/etapa-2.png" alt="etapa-1" style="width: 70%;margin-left: 95px;padding:0px;margin-top: 30px;"><a href="#pagina2" onclick="fechar()" style="padding-left: 730px; margin-top: -40px;"><img src="imgs/fechar.png" alt="fechar"></a>
+            <h1 class="text-center" style="font-size:24px;color: #024F35;">Para quando precisa do serviço?</h1>
+            <div class="container" style="align-items: center;  margin-top: -1% ;">
+                <div style="background-color: #069C6A;margin:20px;" >
+                    <div style="padding: 10px;">
+                        <input class="form-check-input" type="radio" name="usm" id="Urgente" value="Urgentemente">
+                        <label class="form-check-label" for="Urgente">Urgentimente</label>
+                    </div>
+                </div>
+                <div style="background-color: #069C6A;margin: 20px;">
+                    <div style="padding: 10px;">
+                        <input class="form-check-input" type="radio" name="usm" id="Semana" value="Daqui a uma semana">
+                        <label class="form-check-label" for="Semana">Daqui a uma semana</label>
+                    </div>
+                </div>
+                <div style="background-color: #069C6A;margin: 20px;">
+                    <div style="padding:10px;">
+                        <input class="form-check-input" type="radio" name="usm" id="Meses" value="6 meses ou mais">
+                        <label class="form-check-label" for="Meses">6 meses ou mais</label>
+                    </div>
+                </div>       
+            </div>
+            <div class="text-center">
+            <button onclick="voltar(5)"  style="background-color: #FAF9F6;color:#069C6A; border: #069C6A solid;" class="btn">Voltar</button><button onclick="proximo(5)"  style="background-color: #069C6A; color: #FAF9F6; border: #069C6A solid;" class="btn">Proximo</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="overlay" id="overlay6">           
+        <div class="row" style="padding:0px 20px; width: 80%; margin: 0 auto;">
+            <img src="imgs/etapa-2.png" alt="etapa-1" style="width: 70%;margin-left: 95px;padding:0px;margin-top: 30px;"><a href="#pagina2" onclick="fechar()" style="padding-left: 730px; margin-top: -40px;"><img src="imgs/fechar.png" alt="fechar"></a>
+          <div style="margin-top: -5%;">
+            <h1 class="text-center" style="font-size:24px;color: #024F35;">Alguma observação?
+              Ex: Restrição do ambiente, norma do condomínio,
+              pessoa com necessidade especial no espaço?</h1>
+              <div class="container" style="align-items: center;">
+                  <textarea  class="form-control" style="font-size:24px;color: #024F35;" placeholder="Sua resposta" id="obs"></textarea>
+                  <h1  class="text-center" style="font-size:24px;color: #024F35;">Quem indicou a Viverde?</h1>
+                  <textarea  class="form-control"  style="font-size:24px;color: #024F35;" placeholder="Sua resposta" id="ind"></textarea>
+              </div>
+          </div>  
+            <div class="text-center"><br> 
+                <button onclick="voltar(6)" style="background-color: #FAF9F6;color:#069C6A; border: #069C6A solid;" class="btn">Voltar</button><button onclick="proximo(6)" style="background-color: #069C6A; color: #FAF9F6; border: #069C6A solid;" class="btn">Proximo</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="overlay" id="overlay7">
+        <div class="row" style="padding:0px 20px; width: 80%; margin: 0 auto;"><a href="#pagina2" onclick="fechar()" style="padding-left: 730px;margin-top: 27px;"><img src="imgs/fechar.png" alt="fechar"></a>
+            <div  class="container col-sm-9" style="margin-top: 10%; ">     
+                <p style="font-size: 24px ;">Precisamos que você responda as pergunda desse formulário para que possamos
+                    saber quais profissionais são mais indicados para a realização do seu serviço.
+                    Em casos de duvidas entre em contato pelo Whatsapp (81) 98852-7302
+                </p>
+                <div class="text-center"><br>
+                    </button><button onclick="proximo(7)" style="background-color: #069C6A; color: #FAF9F6; border: #069C6A solid;" class="btn">Proximo</button>
+                </div>
+            </div>    
+        </div>  
+    </div>  
+
+
+
+
+
+
+    <div class="overlay" id="overlay8">
+        <div class="row form-group" style="padding:0px 20px; width: 80%; margin: 0 auto;">
+            <img src="imgs/etapa-3.png" alt="etapa-1" style="width: 70%; margin-left: 95px;padding: 0px;"><a href="#pagina2" onclick="fechar()" style="padding-left: 730px; margin-top: -40px;"><img src="imgs/fechar.png" alt="fechar"></a>
+          <div style="margin-top: -10%;">
+            <h1 class="text-center" style="font-size:24px;color: #024F35;">Dados pessoais</h1>   
+            <div class="form-group">
+                <label class="form" style="color: #425A4C; margin-left: 0; " for="casa">Nome:</label>
+                <input class="form-control" style="border: #069C6A solid;" type="text" id="name" placeholder="Digite seu nome." required>  
+            </div>          
+            <div class="form-group">
+                <label  class="form"  style="color: #425A4C; margin-left: 0; " for="casa">Telefone:</label>
+                <input  class="form-control" style="border: #069C6A solid;" type="tel" id="tel" placeholder="(81)99999-9999)"required >  
+            </div> 
+            <div class="form-group">
+                <label class="form" style="color: #425A4C; margin-left: 0; " for="casa">Email:</label>
+                <input class="form-control" style="border: #069C6A solid;" type="email" id="email" placeholder="email@email.com" required>  
+            </div> 
+            <div class="form-group">
+                <label class="form" style="color: #425A4C; margin-left: 0; " for="casa">Endereço:</label>
+                <input class="form-control" style="border: #069C6A solid;" type="text" id="ende" placeholder="Rua fictícia,99" required>  
+            </div> 
+            <div class="form-group">
+                <label class="form" style="color: #425A4C; margin-left: 0; " for="casa">CPF:</label>
+                <input class="form-control" style="border: #069C6A solid;" type="text" id="cpf" placeholder="999.999.999.99" required>  
+            </div> 
+            <div class="form-group">
+                <label class="form" style="color: #425A4C; margin-left: 0;" for="casa">Data de nascimento:</label>
+                <input class="form-control" style="border: #069C6A solid;" type="date" id="date"  placeholder="xx/xx/xxxx" required>  
+            </div> 
+            <div class="text-center">
+                <button onclick="voltar(8)" style="background-color: #FAF9F6;color:#069C6A; border: #069C6A solid; margin-top: 20px;" class="btn">Voltar</button><button onclick="enviar()"action="mailto:yteixeira133@gmail.com" style="background-color: #069C6A; color: #FAF9F6; border: #069C6A solid; margin-top: 20px;" class="btn">Enviar</button>
+            </div>
+            
+          </div>
+
+        </div> 
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+  <script src="scriptoverlay.js"></script>
+
+  
+  </body>
+</html>
+</Doctype>
