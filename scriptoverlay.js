@@ -1,4 +1,5 @@
 
+
 var pintura ;
 var eletrica ;
 var automacao ;
@@ -16,87 +17,12 @@ var aplPiso ;
 
 var servico;
 
-const aparecer = () =>{  
+const aparecer = (tipo) =>{  
     document.getElementById("overlay1").style.display = 'block';
-    pintura = document.getElementById("pintura").value;
-    servico = pintura;
     
-}
-const aparecer1 = () =>{
-    document.getElementById("overlay1").style.display = 'block'; 
-    eletrica = document.getElementById("eletrica").value;
-    servico = eletrica;
-}
-const aparecer2 = () =>{
-    document.getElementById("overlay1").style.display = 'block'; 
-    automacao = document.getElementById("automacao").value;
-    servico = automacao;
-}
-
-const aparecer3 = () =>{
-    document.getElementById("overlay1").style.display = 'block'; 
-    hidraulica = document.getElementById("hidraulica").value;
-    servico = hidraulica;
-}
-
-const aparecer4 = () =>{
-    document.getElementById("overlay1").style.display = 'block'; 
-    construcao = document.getElementById("construcao").value;
-    servico = construcao;
-}
-
-
-const aparecer5 = () =>{
-    document.getElementById("overlay1").style.display = 'block'; 
-    refoGeral = document.getElementById("refGeral").value;
-    servico = refoGeral;
-}
-
-
-const aparecer6 = () =>{
-    document.getElementById("overlay1").style.display = 'block'; 
-    desigInte = document.getElementById("desInte").value;
-    servico = desigInte;
-}
-
-
-const aparecer7 = () =>{
-    document.getElementById("overlay1").style.display = 'block'; 
-    arqEng = document.getElementById("arqEng").value;
-    servico = arqEng;
-}
-
-
-const aparecer8 = () =>{
-    document.getElementById("overlay1").style.display = 'block'; 
-    obrasAca = document.getElementById("obraAcab").value;
-    servico = obrasAca;
-}
-
-
-const aparecer9 = () =>{
-    document.getElementById("overlay1").style.display = 'block'; 
-    forroPvc = document.getElementById("forroPvc").value;
-    servico = forroPvc;
-}
-
-
-const aparecer10 = () =>{
-    document.getElementById("overlay1").style.display = 'block'; 
-    marcenaria = document.getElementById("marcenaria").value;
-    servico = marcenaria;
-}
-
-
-const aparecer11 = () =>{
-    document.getElementById("overlay1").style.display = 'block'; 
-    forroGesso = document.getElementById("forroGesso").value;
-    servico = forroGesso;
-}
-const aparecer12 = () =>{
-    document.getElementById("overlay1").style.display = 'block'; 
-    aplPiso = document.getElementById("aplPiso").value;
-    servico = aplPiso;
+    servico =    document.getElementById(tipo).value;
+    
+    
 }
 
 
@@ -244,9 +170,9 @@ const enviar = ()=>{
 } 
 
 
-function mostrar(){
-    let mostrar ;     
-    (async () => {
+async function  mostrar(){
+    let mostrar = []    
+    
         const Servicos = Parse.Object.extend('Servicos');
         const query = new Parse.Query(Servicos);
 
@@ -255,14 +181,18 @@ function mostrar(){
     for (const object of results) {
         // Access the Parse Object attributes using the .GET method
         const Nome = object.get('Nome');
-        const IDservi = object.get('IDservi');
+        //const IDservi = object.get('IDservi');
 
-        mostrar += Nome + "\n";
+        mostrar.push(Nome);
         // mostrar.push(`${Nome}\n`);
-        document.getElementById("demon").innerHTML =  mostrar;
+      
 
     }
-    })();
+  
 
+    document.getElementById('rows').innerHTML = mostrar.reduce((servicos, servico) => {
+     return servicos +     `<div class="serviços" onclick="aparecer(${servico})"> <input type="text" id="${servico}" value="${servico}"  style="display : none;" "> <div class="" style="background-image:url(imgs/pintura.png);background-size:100%; width: 220px ;background-repeat: no-repeat;height: 140px;"></div>  <p> ${servico}</p> </div>`
+   }, '')
 }
+
 
